@@ -1,0 +1,7 @@
+*.root
+build/CMakeFiles
+*.o
+*.out
+*.in
+build/Makefile
+build/phantom
