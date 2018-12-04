@@ -5,3 +5,5 @@ build/CMakeFiles
 *.in
 build/Makefile
 build/phantom
+build/CMakeCache.txt
+build/cmake_install.cmake
