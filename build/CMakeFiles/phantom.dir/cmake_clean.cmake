@@ -1,4 +1,4 @@
-FILE(REMOVE_RECURSE
+file(REMOVE_RECURSE
   "CMakeFiles/phantom.dir/phantom.cc.o"
   "CMakeFiles/phantom.dir/src/G4BasePhantomBuilder.cc.o"
   "CMakeFiles/phantom.dir/src/G4CustomFemaleBuilder.cc.o"
@@ -13,6 +13,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/phantom.dir/src/G4HumanPhantomMessenger.cc.o"
   "CMakeFiles/phantom.dir/src/G4HumanPhantomPhysicsList.cc.o"
   "CMakeFiles/phantom.dir/src/G4HumanPhantomPrimaryGeneratorAction.cc.o"
+  "CMakeFiles/phantom.dir/src/G4HumanPhantomRunAction.cc.o"
   "CMakeFiles/phantom.dir/src/G4HumanPhantomSD.cc.o"
   "CMakeFiles/phantom.dir/src/G4HumanPhantomSteppingAction.cc.o"
   "CMakeFiles/phantom.dir/src/G4MIRDBodyFactory.cc.o"
@@ -69,12 +70,11 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/phantom.dir/src/G4VoxelBreastFactory.cc.o"
   "CMakeFiles/phantom.dir/src/G4VoxelLeftBreast.cc.o"
   "CMakeFiles/phantom.dir/src/G4VoxelRightBreast.cc.o"
-  "CMakeFiles/phantom.dir/src/G4HumanPhantomRunAction.cc.o"
   "phantom.pdb"
   "phantom"
 )
 
 # Per-language clean rules from dependency scanning.
-FOREACH(lang CXX)
-  INCLUDE(CMakeFiles/phantom.dir/cmake_clean_${lang}.cmake OPTIONAL)
-ENDFOREACH(lang)
+foreach(lang CXX)
+  include(CMakeFiles/phantom.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
