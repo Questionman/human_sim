@@ -51,6 +51,8 @@
 #include "G4HumanPhantomConstruction.hh"
 #include "G4HumanPhantomPhysicsList.hh"
 #include "G4HumanPhantomActionInitialization.hh"
+#include "Randomize.hh"
+#include "time.h"
 
 #ifdef G4MULTITHREADED
   #include "G4MTRunManager.hh"
@@ -60,6 +62,10 @@
 
 int main(int argc,char** argv)
 {
+// Choose the Random engine
+  G4Random::setTheEngine(new CLHEP::RanecuEngine);
+  G4Random::setTheSeed(time(0)); 
+
 #ifdef G4MULTITHREADED
   G4MTRunManager* runManager = new G4MTRunManager;
 //runManager->SetNumberOfThreads(4); // Is equal to 2 by default
