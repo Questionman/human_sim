@@ -219,7 +219,7 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::ConstructWorld()
  
   // World Volume
   G4double worldSize = 2. *m ;
-  G4Box* world = new G4Box("world", 0.5*worldSize, 0.5*worldSize, 2.8*m);
+  G4Box* world = new G4Box("world", 0.5*worldSize, 0.5*worldSize, 0.5*worldSize);
 
   G4LogicalVolume* logicWorld = new G4LogicalVolume(world, 
 						    atmosphere_mat, 
