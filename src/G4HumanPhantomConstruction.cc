@@ -43,7 +43,6 @@
 //#include "G4VBodyFactory.hh"
 //#include "G4MIRDBodyFactory.hh"
 //#include "G4ORNLBodyFactory.hh"
-
 #include "G4PhantomBuilder.hh"
 #include "G4FemaleBuilder.hh"
 #include "G4MaleBuilder.hh"
@@ -51,6 +50,7 @@
 #include "G4CustomFemaleBuilder.hh"
 #include "G4RunManager.hh"
 #include "G4HumanPhantomMaterial.hh"
+#include "G4Tubs.hh"
 #include "G4Box.hh"
 #include "G4LogicalVolume.hh"
 #include "G4VPhysicalVolume.hh"
@@ -106,8 +106,8 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::Construct()
 	      builder->SetModel(model);}
 	}
     }
-  
-  builder->SetMotherVolume(ConstructWorld());
+  G4VPhysicalVolume* motherVolume = ConstructWorld();
+  builder->SetMotherVolume(motherVolume->GetLogicalVolume()->GetDaughter(0));
   
   // the argument indicates the sensitivity of the volume
   
@@ -194,9 +194,9 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::Construct()
       }
       
     }
-  G4VPhysicalVolume* result=builder->GetPhantom(); 
+//  G4VPhysicalVolume* result=builder->GetPhantom(); 
   delete builder;
-  return result; 
+  return motherVolume; 
 }
 
 void  G4HumanPhantomConstruction::SetBodyPartSensitivity(G4String, G4bool)
@@ -219,7 +219,7 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::ConstructWorld()
  
   // World Volume
   G4double worldSize = 2. *m ;
-  G4Box* world = new G4Box("world", 0.5*worldSize, 0.5*worldSize, 2.8*m);
+  G4Box* world = new G4Box("world", 0.5*worldSize, 0.5*worldSize, 4.0*m);
 
   G4LogicalVolume* logicWorld = new G4LogicalVolume(world, 
 						    atmosphere_mat, 
@@ -253,15 +253,15 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::ConstructWorld()
 
   // Space suit
   G4Material* polycarbonate = nist -> FindOrBuildMaterial("G4_POLYCARBONATE");
-
-  G4Box* suit_out = new G4Box("suit_out",21.5*cm, 11.5*cm,88.5*cm);
-  G4Box* suit_in = new G4Box("suit_in", 20.5*cm, 10.5*cm, 87.5*cm);
+//  G4Tubs* suit_tubs = new G4Tubs("suit_tubs",100.5*cm, 101.5*cm,99.1*cm,0,2*3.14159265358979323846);
+  G4Box* suit_out = new G4Box("suit_out",21.5*cm, 11.5*cm,95.1*cm);
+  G4Box* suit_in = new G4Box("suit_in", 20.5*cm, 10.5*cm, 94.1*cm);
   G4SubtractionSolid* suit_final = 
     new G4SubtractionSolid("suit_final", suit_out, suit_in); 
 
   G4LogicalVolume* logicSuit = new G4LogicalVolume(suit_final,polycarbonate, "logicalSuit");
   new G4PVPlacement(0, G4ThreeVector(0,0,7*cm), logicSuit,"physicalSuit",logicWorld,false,1,true);
-/*
+
   // Mars Regolith
   G4Material* regolith_mat = new G4Material("Mars_regolith",1.7*g/cm3, 4);
   G4Material* SiO2 = nist -> FindOrBuildMaterial("G4_SILICON_DIOXIDE");
@@ -285,8 +285,8 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::ConstructWorld()
   G4Box* solidRegolith = new G4Box("Regolith", 0.4999*worldSize, 0.4999*worldSize, 0.5*regolith_depth);
   G4LogicalVolume* logicRegolith = new G4LogicalVolume(solidRegolith, regolith_mat, "Regolith");  
   logicRegolith->SetUserLimits(new G4UserLimits(20*cm));
-  new G4PVPlacement(0,G4ThreeVector(0,0,-80*cm-0.5*regolith_depth), logicRegolith, "Regolith", logicWorld, false,5, true);
-*/
+  new G4PVPlacement(0,G4ThreeVector(0,0,-95.11*cm-0.5*regolith_depth), logicRegolith, "Regolith", logicWorld, false,5, true);
+
   // Mars Atmosphere
   G4double atmosphere_outer_radius = 0.4999*worldSize; // m 
  
