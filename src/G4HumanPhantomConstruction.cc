@@ -206,14 +206,23 @@ void  G4HumanPhantomConstruction::SetBodyPartSensitivity(G4String, G4bool)
 
 G4VPhysicalVolume* G4HumanPhantomConstruction::ConstructWorld()
 {
-  G4Material* air = material -> GetMaterial("Air");
-
+  //G4Material* air = material -> GetMaterial("Air");
+  //
+  
+  // Get nist material manager
+  G4NistManager* nist = G4NistManager::Instance();
+  
+  G4Material* atmosphere_mat = new G4Material("Mars_atmosphere", 1.357*g/cm3,3);
+  atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_CARBON_DIOXIDE"),0.957);
+  atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_lN2"),0.027);
+  atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_Ar"), 0.016);
+ 
   // World Volume
   G4double worldSize = 2. *m ;
   G4Box* world = new G4Box("world", 0.5*worldSize, 0.5*worldSize, 2.8*m);
 
   G4LogicalVolume* logicWorld = new G4LogicalVolume(world, 
-						    air, 
+						    atmosphere_mat, 
 						    "logicalWorld", 0, 0,0);
 
   G4VPhysicalVolume* motherVolume = new G4PVPlacement(0,G4ThreeVector(),
@@ -228,10 +237,7 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::ConstructWorld()
     
   WorldVisAtt->SetForceSolid(false);
   logicWorld->SetVisAttributes(G4VisAttributes::GetInvisible());
-
-  // Get nist material manager
-  G4NistManager* nist = G4NistManager::Instance();
-  
+ 
   // Material
   G4Element* elementMg = new G4Element("Magnesium", "Mg",12., 24.3050*g/mole);
   G4Element* elementAl = new G4Element("Aluminium", "Al",13., 26.9815*g/mole);
@@ -255,7 +261,7 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::ConstructWorld()
 
   G4LogicalVolume* logicSuit = new G4LogicalVolume(suit_final,polycarbonate, "logicalSuit");
   new G4PVPlacement(0, G4ThreeVector(0,0,7*cm), logicSuit,"physicalSuit",logicWorld,false,1,true);
-
+/*
   // Mars Regolith
   G4Material* regolith_mat = new G4Material("Mars_regolith",1.7*g/cm3, 4);
   G4Material* SiO2 = nist -> FindOrBuildMaterial("G4_SILICON_DIOXIDE");
@@ -280,16 +286,10 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::ConstructWorld()
   G4LogicalVolume* logicRegolith = new G4LogicalVolume(solidRegolith, regolith_mat, "Regolith");  
   logicRegolith->SetUserLimits(new G4UserLimits(20*cm));
   new G4PVPlacement(0,G4ThreeVector(0,0,-80*cm-0.5*regolith_depth), logicRegolith, "Regolith", logicWorld, false,5, true);
-
+*/
   // Mars Atmosphere
-  G4double atmosphere_inner_radius = 6.980001*cm;
   G4double atmosphere_outer_radius = 0.4999*worldSize; // m 
-  G4Material* atmosphere_mat = new G4Material("Mars_atmosphere", 1.357*g/cm3,3);
-  atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_CARBON_DIOXIDE"),0.957);
-  atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_lN2"),0.027);
-  atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_Ar"), 0.016);
-
-
+ 
 
 
 
