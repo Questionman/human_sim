@@ -274,7 +274,7 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::ConstructWorld()
 
   // Mars Atmosphere
   G4double atmosphere_outer_radius = 0.4999*worldSize; // m   
-  G4Material* atmosphere_mat = new G4Material("Mars_atmosphere", 1.357*g/cm3,3);
+  G4Material* atmosphere_mat = new G4Material("Mars_atmosphere", 0.165*g/cm3,3);
   atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_CARBON_DIOXIDE"),0.957);
   atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_lN2"),0.027);
   atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_Ar"), 0.016);
