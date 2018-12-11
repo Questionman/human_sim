@@ -97,7 +97,7 @@ G4VPhysicalVolume* G4MIRDHead::Construct(const G4String& volumeName,G4VPhysicalV
   
   G4VPhysicalVolume* physHead = new G4PVPlacement(rm,
 						  //G4ThreeVector(0.* cm,0.*cm, 70.75*cm), //FA
-						  G4ThreeVector(0.* cm,0.*cm, 77.75*cm),
+						  G4ThreeVector(0.* cm,0.*cm, 159.55*cm),
 						  "physicalHead",
 						  logicHead,
 						  mother,

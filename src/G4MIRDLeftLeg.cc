@@ -89,7 +89,7 @@ G4VPhysicalVolume* G4MIRDLeftLeg::Construct(const G4String& volumeName, G4VPhysi
   rm->rotateY(180.*degree);
   G4VPhysicalVolume* physLeftLeg = new G4PVPlacement(rm,
 						     //G4ThreeVector(10. * cm, 0. * cm, -47. *cm), //FA
-						     G4ThreeVector(10. * cm, 0. * cm, -40. *cm),
+						     G4ThreeVector(10. * cm, 0. * cm, 41.5 *cm),
 						     "physicalLeftLeg",
 						     logicLeftLeg,
 						     mother,

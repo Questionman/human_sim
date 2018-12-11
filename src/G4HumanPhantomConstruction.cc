@@ -218,7 +218,7 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::ConstructWorld()
   atmosphere_mat->AddMaterial(nist->FindOrBuildMaterial("G4_Ar"), 0.016);
  
   // World Volume
-  G4double worldSize = 2. *m ;
+  G4double worldSize = 4. *m ;
   G4Box* world = new G4Box("world", 0.5*worldSize, 0.5*worldSize, 0.5*worldSize);
 
   G4LogicalVolume* logicWorld = new G4LogicalVolume(world, 
@@ -260,7 +260,7 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::ConstructWorld()
     new G4SubtractionSolid("suit_final", suit_out, suit_in); 
 
   G4LogicalVolume* logicSuit = new G4LogicalVolume(suit_final,polycarbonate, "logicalSuit");
-  new G4PVPlacement(0, G4ThreeVector(0,0,7*cm), logicSuit,"physicalSuit",logicWorld,false,1,true);
+  new G4PVPlacement(0, G4ThreeVector(0,0,88.5*cm), logicSuit,"physicalSuit",logicWorld,false,1,true);
 /*
   // Mars Regolith
   G4Material* regolith_mat = new G4Material("Mars_regolith",1.7*g/cm3, 4);

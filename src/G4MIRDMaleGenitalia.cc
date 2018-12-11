@@ -126,7 +126,7 @@ G4VPhysicalVolume* G4MIRDMaleGenitalia::Construct(const G4String& volumeName,G4V
  
   // Define rotation and position here!
   G4VPhysicalVolume* physMaleGenitalia = new G4PVPlacement(0,
-							   G4ThreeVector(0*cm,5.*cm, -2.4*cm),
+							   G4ThreeVector(0*cm,5.*cm, 79.1*cm),
 							   "physicalMaleGenitalia",
 							   logicMaleGenitalia,
 							   mother,

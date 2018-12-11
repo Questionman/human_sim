@@ -84,7 +84,7 @@ G4VPhysicalVolume* G4MIRDTrunk::Construct(const G4String& volumeName, G4VPhysica
   rm->rotateY(180.*degree); 
   G4VPhysicalVolume* physTrunk = new G4PVPlacement(rm,
 						   //G4ThreeVector(0.* cm, 0. *cm, 28.*cm), //FA
-						   G4ThreeVector(0.* cm, 0. *cm, 35.*cm),
+						   G4ThreeVector(0.* cm, 0. *cm, 116.5*cm),
 						   "physicalTrunk",
 						   logicTrunk,
 						   mother,
