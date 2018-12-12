@@ -155,16 +155,16 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::Construct()
          
       builder->BuildSpleen("green", true,sensitivities["Spleen"]);
       builder->BuildPancreas("purple", true,sensitivities["Pancreas"]); 
-      //builder->BuildLiver("orange", true,sensitivities["Liver"]); 
+      builder->BuildLiver("orange", true,sensitivities["Liver"]); 
 
       builder->BuildLeftKidney("green", true,sensitivities["LeftKidney"]);
       builder->BuildRightKidney("green", true,sensitivities["RightKidney"]);
       builder->BuildUrinaryBladder("green", true,sensitivities["UrinaryBladder"]);
  
-      //builder->BuildHeart("red", true,sensitivities["Hearth"]);// to do MIRD
-     // builder->BuildLeftLung("blue", true,sensitivities["LeftLung"]);
-      //builder->BuildRightLung("blue", true,sensitivities["RightLung"]);
-     // builder->BuildThyroid("orange", true,sensitivities["Thyroid"]); 
+      builder->BuildHeart("red", true,sensitivities["Hearth"]);// to do MIRD
+      builder->BuildLeftLung("blue", true,sensitivities["LeftLung"]);
+      builder->BuildRightLung("blue", true,sensitivities["RightLung"]);
+      builder->BuildThyroid("orange", true,sensitivities["Thyroid"]); 
 
       if(sex=="Female"){
 
@@ -286,8 +286,8 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::ConstructWorld()
 
   // Space suit
   G4Material* polycarbonate = nist -> FindOrBuildMaterial("G4_POLYCARBONATE");
-
-  G4Box* suit_out = new G4Box("suit_out",21.5*cm, 11.5*cm,88.5*cm);
+  
+  G4Box* suit_out = new G4Box("suit_out",20.917*cm, 10.917*cm,87.917*cm);
   G4Box* suit_in = new G4Box("suit_in", 20.5*cm, 10.5*cm, 87.5*cm);
   G4SubtractionSolid* suit_final = 
     new G4SubtractionSolid("suit_final", suit_out, suit_in); 

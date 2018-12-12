@@ -38,10 +38,11 @@
 /gps/ang/mintheta 0 deg
 /gps/ang/maxtheta 90 deg
 /gps/source/list
-/run/printProgress 1000000
+
 /tracking/verbose 0
 
 # Visualize Phantom with OPENGL 
 #/control/execute openGLVis.mac
 
-/run/beamOn 10000
+/run/printProgress 1000000
+/run/beamOn 1000000000
