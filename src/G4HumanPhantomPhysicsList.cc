@@ -102,7 +102,7 @@ void G4HumanPhantomPhysicsList::SetCuts()
   // Very important for high precision of lowenergy processes at low energies
  
   G4double lowLimit = 250. * eV;
-  G4double highLimit = 100. * GeV;
+  G4double highLimit = 1000. * PeV;
   G4ProductionCutsTable::GetProductionCutsTable()->SetEnergyRange(lowLimit, highLimit);
   
   if (verboseLevel>0) DumpCutValuesTable();
