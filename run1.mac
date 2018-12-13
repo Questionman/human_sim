@@ -1,0 +1,48 @@
+#
+# Sets some default verbose
+/control/verbose 0
+#
+# Initialize New Phantom
+#
+# Choose model: ORNL, MIRD, MIX
+#
+/phantom/setPhantomModel MIRD
+#
+# Choose Sex of Phantom: Male or Female
+#
+/phantom/setPhantomSex Male
+# Construct your Phantom
+#
+/phantom/buildNewPhantom
+/run/numberOfThreads 96
+/run/initialize
+/gps/particle alpha
+#/gps/ion 26 56
+/gps/ene/type Arb
+/gps/ene/diffspec 1
+/gps/hist/type arb
+/control/execute ../../GCR_PRIMARY/Z2_A4.mac
+/gps/hist/inter Lin
+
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/radius 1.999 m
+/gps/pos/centre 0 0 0 
+
+/gps/hist/type biaspt
+/gps/hist/point 0. 0.
+/gps/hist/point 0.5 1.
+/gps/hist/point 1 0.
+
+/gps/ang/type cos
+/gps/ang/mintheta 0 deg
+/gps/ang/maxtheta 90 deg
+/gps/source/list
+
+/tracking/verbose 0
+
+# Visualize Phantom with OPENGL 
+#/control/execute openGLVis.mac
+
+/run/printProgress 1000000
+/run/beamOn 500000000
