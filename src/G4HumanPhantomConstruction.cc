@@ -161,7 +161,7 @@ G4VPhysicalVolume* G4HumanPhantomConstruction::Construct()
       builder->BuildRightKidney("green", true,sensitivities["RightKidney"]);
       builder->BuildUrinaryBladder("green", true,sensitivities["UrinaryBladder"]);
  
-      builder->BuildHeart("red", true,sensitivities["Hearth"]);// to do MIRD
+      builder->BuildHeart("red", true,sensitivities["Heart"]);// to do MIRD
       builder->BuildLeftLung("blue", true,sensitivities["LeftLung"]);
       builder->BuildRightLung("blue", true,sensitivities["RightLung"]);
       builder->BuildThyroid("orange", true,sensitivities["Thyroid"]); 
