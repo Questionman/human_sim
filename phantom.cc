@@ -50,6 +50,7 @@
 
 #include "G4HumanPhantomConstruction.hh"
 #include "G4HumanPhantomPhysicsList.hh"
+#include "G4PhysListFactory.hh"
 #include "G4HumanPhantomActionInitialization.hh"
 #include "Randomize.hh"
 #include "time.h"
@@ -77,7 +78,10 @@ int main(int argc,char** argv)
   G4HumanPhantomConstruction* userPhantom = new G4HumanPhantomConstruction();
   runManager->SetUserInitialization(userPhantom);
 
-  runManager->SetUserInitialization(new G4HumanPhantomPhysicsList);
+  G4PhysListFactory factory;
+  G4VModularPhysicsList* phys = factory.GetReferencePhysList("QBBC_EMZ");
+  runManager->SetUserInitialization(phys);
+//  runManager->SetUserInitialization(new G4HumanPhantomPhysicsList);
 
 #ifdef G4VIS_USE
   G4VisManager* visManager = new G4VisExecutive;
