@@ -91,7 +91,7 @@ G4VPhysicalVolume* G4MIRDHeart::Construct(const G4String& volumeName,G4VPhysical
   G4UnionSolid* heart = new G4UnionSolid("Heart", heart1, heart2);
  
   G4LogicalVolume* logicHeart = new G4LogicalVolume(heart, soft,
-						    "HeartVolume",
+						    "logical"+volumeName,
 						    0, 0, 0);
 
   // Define rotation and position here!

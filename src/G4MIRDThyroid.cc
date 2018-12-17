@@ -117,7 +117,7 @@ G4VPhysicalVolume* G4MIRDThyroid::Construct(const G4String& volumeName,G4VPhysic
 
 
   G4LogicalVolume* logicThyroid = new G4LogicalVolume(thyroid, soft,
-						      "ThyroidVolume",
+						      "logical"+volumeName,
 						      0, 0, 0);
 
   G4RotationMatrix* rm = new G4RotationMatrix();
