@@ -43,6 +43,6 @@
 
 # Visualize Phantom with OPENGL 
 #/control/execute openGLVis.mac
-/control/suppressAbortion
-/run/printProgress 100000
-/run/beamOn 500000000
+/control/suppressAbortion 2
+/run/printProgress 1000000
+/run/beamOn 250000000
