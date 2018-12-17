@@ -381,6 +381,11 @@ if (model != "ORNLMale" && model != "ORNLFemale" && model!= "ORNLHead")
       SetSensitiveDetector("logicalLeftKidney",SD);
       SetSensitiveDetector("logicalRightKidney",SD);       
       SetSensitiveDetector("logicalUrinaryBladder",SD);
+      SetSensitiveDetector("logicalHeart",SD);
+      SetSensitiveDetector("logicalLeftLung",SD);
+      SetSensitiveDetector("logicalRightLung",SD);
+      SetSensitiveDetector("logicalPelvis",SD);
+      SetSensitiveDetector("logicalThyroid",SD);
 
       if(sex=="Female"){
 
