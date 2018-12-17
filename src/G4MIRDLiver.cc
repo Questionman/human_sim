@@ -101,7 +101,7 @@ G4VPhysicalVolume* G4MIRDLiver::Construct(const G4String& volumeName,G4VPhysical
 
   G4LogicalVolume* logicLiver = new G4LogicalVolume(liver,
  						    soft,
- 						    "LiverVolume",
+ 						    "logical"+volumeName,
  						    0, 0, 0);
 
   // Define rotation and position here!

@@ -373,7 +373,7 @@ if (model != "ORNLMale" && model != "ORNLFemale" && model!= "ORNLHead")
       SetSensitiveDetector("logicalRightClavicle",SD);
       SetSensitiveDetector("logicalSmallIntestine",SD); 
       SetSensitiveDetector("logicalRibCage",SD);       SetSensitiveDetector("logicalMiddleLowerSpine",SD); 
-      SetSensitiveDetector("logicalStomach",SD); 
+      SetSensitiveDetector("logicalStomach",SD);
       SetSensitiveDetector("logicalUpperLargeIntestine",SD);
       SetSensitiveDetector("logicalLowerLargeIntestine",SD);
       SetSensitiveDetector("logicalSpleen",SD);
@@ -386,6 +386,7 @@ if (model != "ORNLMale" && model != "ORNLFemale" && model!= "ORNLHead")
       SetSensitiveDetector("logicalRightLung",SD);
       SetSensitiveDetector("logicalPelvis",SD);
       SetSensitiveDetector("logicalThyroid",SD);
+      SetSensitiveDetector("logicalLiver",SD);
 
       if(sex=="Female"){
 

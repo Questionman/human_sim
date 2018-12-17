@@ -99,6 +99,7 @@ void G4HumanPhantomRunAction::BeginOfRunAction(const G4Run* aRun)
  energyTotal["logicalRightBreast"]=0.; 
  energyTotal["logicalLeftAdrenal"]=0.; 
  energyTotal["logicalRightAdrenal"]=0.;
+ energyTotal["logicalLiver"]=0.;
  //G4RunManager::GetRunManager()->SetPrintProgress(100000);
 #ifdef ANALYSIS_USE
   // Create ROOT file, histograms and ntuple
