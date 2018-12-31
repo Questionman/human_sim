@@ -16,12 +16,12 @@
 /phantom/buildNewPhantom
 /run/numberOfThreads 96
 /run/initialize
-/gps/particle proton
+/gps/particle alpha
 #/gps/ion 26 56
 /gps/ene/type Arb
 /gps/ene/diffspec 1
 /gps/hist/type arb
-/control/execute ../../GCR_PRIMARY/Z1_A1.mac
+/control/execute ../../GCR_PRIMARY/Z2_A4.mac
 /gps/hist/inter Lin
 
 /gps/pos/type Surface
@@ -45,4 +45,4 @@
 #/control/execute openGLVis.mac
 /control/suppressAbortion 2
 /run/printProgress 1000000
-/run/beamOn 500000000
+/run/beamOn 250000000
